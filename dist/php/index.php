@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
-  <?php $pagetitle = 'Home'; require_once 'head.php'; ?>
+  <?php $pagetitle = 'Home'; require_once 'head.php';?>
   <body>
-    <section class="bg-gray-50">
+    <section>
       <div
         class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
       >
