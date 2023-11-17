@@ -1,10 +1,8 @@
 <?php
 require_once 'functions.php';
 
-// Retrieve patientID from the URL
 $patientID = $_GET['id'];
 
-// Get patient information for editing
 $patient = getPatientForEdit($patientID);
 ?>
 
