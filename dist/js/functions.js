@@ -1,1 +1,0 @@
-function search_patients() {}

@@ -49,7 +49,7 @@
                 class='inline-block rounded bg-gray-400 px-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-gray-300' 
                 href='editPatientInfo.php?id=" . $row["patientID"] . "'>Edit</a>";
                 echo "<a 
-                class='inline-block rounded bg-red-400 px-2 mx-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-red-300' 
+                class='inline-block rounded bg-red-400 px-2 ml-4 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-red-300' 
                 href='editPatientInfo.php?id=" . $row["patientID"] . "'>Remove patient from list</a></td>";
 
                 echo "</tr>";
@@ -61,5 +61,6 @@
         </tbody>
       </table>
     </div>
+    <script src="../js/functions.js"></script>
   </body>
 </html> 
