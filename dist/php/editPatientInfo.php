@@ -8,7 +8,9 @@ $patient = getPatientForEdit($patientID);
 
 <!doctype html>
 <html lang="en">
+  <head>
   <?php $pagetitle = 'Edit Patient'; require_once 'head.php'; ?>
+  </head>
       <body class="bg-gray-100">
 
     <div class="container mx-auto p-4">

@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
-  <?php $pagetitle = 'Home'; require_once 'head.php';?>
+  <head>
+    <?php $pagetitle = 'Home'; require_once 'head.php';?>
+  </head>
   <body>
     <section>
       <div
