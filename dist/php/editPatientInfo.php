@@ -53,12 +53,21 @@ $patient = getPatientForEdit($patientID);
             <label for="phone_number" class="block text-sm font-semibold text-gray-600">Phone Number:</label>
             <input type="text" id="phone_number" name="phone_number" value="<?= $patient['phone_number'] ?>" class="mt-1 p-2 w-full border rounded-md">
           </div>
+
+          <div>
+          <label for="active" class="block text-sm font-semibold text-gray-600">Active:</label>
+          <input type="checkbox" id="active" name="active" <?= $patient['active'] ? 'checked' : '' ?> class="mt-1 p-2">
+        </div>
+
         </div>
 
         <div class="mt-12">
           <input type="submit" value="Save Changes" class="inline-block rounded bg-gray-400 px-4 py-2 text-lg font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-gray-300">
           <a href="./overzichtsPagina.php" class="mx-2 inline-block rounded bg-red-400 px-4 py-2 text-lg font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-red-300">Cancel</a>
         </div>
+
+        <input type="hidden" name="patient_id" value="<?= $patientID ?>">
+        <!--Zodat updatepatientinfo weet welke patient geupdate moet worden-->
 
       </form>
     </div>

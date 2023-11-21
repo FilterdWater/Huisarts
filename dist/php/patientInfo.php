@@ -53,6 +53,12 @@ $patient = getPatientForEdit($patientID);
         <label class="block text-sm font-semibold text-gray-600">Phone Number:</label>
         <p class="mt-1 p-2 w-full border rounded-md"><?= $patient['phone_number'] ?></p>
       </div>
+
+      <div>
+          <label for="active" class="block text-sm font-semibold text-gray-600">Active:</label>
+          <input type="checkbox" id="active" name="active" <?= $patient['active'] ? 'checked' : '' ?> class="mt-1 p-2" onclick="return false;">
+        </div>
+
     </div>
 
     <div class="mt-12">

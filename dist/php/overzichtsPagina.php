@@ -24,24 +24,24 @@
 
             $conn = connectToDatabase();
 
-            $sql = "SELECT * FROM patienten";
+            $sql = "SELECT * FROM patienten WHERE active = 1";
             $stmt = $conn->query($sql);
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                echo "<tr class='hover:bg-gray-100 cursor-pointer' onclick=\"window.location='patientInfo.php?id=" . $row["patientID"] . "';\">";
-echo "<td class='py-2 px-4 border'>" . $row["first_name"] . "</td>";
-echo "<td class='py-2 px-4 border'>" . $row["last_name"] . "</td>";
-echo "<td class='py-2 px-4 border'>" . $row["address"] . "</td>";
-echo "<td class='py-2 px-4 border'>" . $row["house_number"] . "</td>";
-echo "<td class='py-2 px-4 border'>" . $row["postcode"] . "</td>";
-echo "<td class='py-2 px-4 border'>" . $row["city"] . "</td>";
-echo "<td class='py-2 px-4 border'>" . $row["phone_number"] . "</td>";
-echo "<td class='pl-2 border'>";
-echo "<a class='inline-block rounded bg-blue-400 px-2 ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-blue-300' href='#" . $row["patientID"] . "'>View</a>";
-echo "<a class='inline-block rounded bg-gray-400 px-2  ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-gray-300' href='editPatientInfo.php?id=" . $row["patientID"] . "'>Edit</a>";
-echo "<a class='inline-block rounded bg-red-400 px-2 ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-red-300' href='#" . $row["patientID"] . "'>Disable</a>";
-echo "</td>";
-echo "</tr>";
+               echo "<td class='py-2 px-4 border'>" . $row["first_name"] . "</td>";
+               echo "<td class='py-2 px-4 border'>" . $row["last_name"] . "</td>";
+               echo "<td class='py-2 px-4 border'>" . $row["address"] . "</td>";
+               echo "<td class='py-2 px-4 border'>" . $row["house_number"] . "</td>";
+               echo "<td class='py-2 px-4 border'>" . $row["postcode"] . "</td>";
+               echo "<td class='py-2 px-4 border'>" . $row["city"] . "</td>";
+               echo "<td class='py-2 px-4 border'>" . $row["phone_number"] . "</td>";
+               echo "<td class='pl-2 border'>";
+               echo "<a class='inline-block rounded bg-blue-400 px-2 ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-blue-300' href='#" . $row["patientID"] . "'>View</a>";
+               echo "<a class='inline-block rounded bg-gray-400 px-2  ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-gray-300' href='editPatientInfo.php?id=" . $row["patientID"] . "'>Edit</a>";
+               echo "<a class='inline-block rounded bg-red-400 px-2 ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-red-300' href='#" . $row["patientID"] . "'>Disable</a>";
+               echo "</td>";
+               echo "</tr>";
 
             }
 
