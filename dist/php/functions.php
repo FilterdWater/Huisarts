@@ -16,6 +16,8 @@ function connectToDatabase() {
     }
 }
 
+// this function is used in editPatientInfo.php
+// its used to get the info of a patient based on id
 function getPatientForEdit($patientID) {
     // Call the function to connect to the database
     $conn = connectToDatabase();
@@ -27,17 +29,18 @@ function getPatientForEdit($patientID) {
     $stmt->execute();
     $patient = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Close the database connection
+    // close the database connection
     $conn = null;
 
+    // return values
     return $patient;
 }
 
 function updatePatient($patientID, $newFirstName, $newLastName, $newAddress, $newHouseNumber, $newPostcode, $newCity, $newPhoneNumber, $isActive) {
-    // Call the function to connect to the database
+    // call the function to connect to the database
     $conn = connectToDatabase();
 
-    // Update patient information in the database
+    // update patient information in the database
     $sql = "UPDATE patienten SET 
             first_name = :first_name,
             last_name = :last_name,
@@ -57,11 +60,35 @@ function updatePatient($patientID, $newFirstName, $newLastName, $newAddress, $ne
     $stmt->bindParam(':postcode', $newPostcode);
     $stmt->bindParam(':city', $newCity);
     $stmt->bindParam(':phone_number', $newPhoneNumber);
-    $stmt->bindParam(':active', $isActive, PDO::PARAM_INT); // Use PDO::PARAM_INT for boolean values
+    $stmt->bindParam(':active', $isActive, PDO::PARAM_INT); // use PDO::PARAM_INT for boolean values (chatgpt)
     $stmt->bindParam(':id', $patientID);
+    $stmt->execute();
+
+    // close the database connection
+    $conn = null;
+}
+
+
+
+// patientID value comes from the function disablePatientJavascript() inside function.js
+function disablePatientPHP($patientID) {
+
+    // database connection
+    $conn = connectToDatabase();
+
+    // make sql query
+    $sql = "UPDATE patienten SET active = 0 WHERE patientID = :patientID";
+    
+    // execute the query
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':patientID', $patientID, PDO::PARAM_INT);
+
+    // Execute the statement
     $stmt->execute();
 
     // Close the database connection
     $conn = null;
 }
+
+
 ?>

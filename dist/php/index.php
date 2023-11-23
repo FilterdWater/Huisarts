@@ -4,6 +4,12 @@
     <?php $pagetitle = 'Home'; require_once 'head.php';?>
   </head>
   <body>
+    <!--
+
+    This whole page is just to have an index page
+    If i had enough time i would have made it a login screen
+
+    -->
     <section>
       <div
         class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"

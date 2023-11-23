@@ -1,3 +1,7 @@
+<!--
+ this page might have been used if i could login as assisstant
+-->
+
 <?php
 require_once 'functions.php';
 
@@ -56,13 +60,13 @@ $patient = getPatientForEdit($patientID);
 
       <div>
           <label for="active" class="block text-sm font-semibold text-gray-600">Active:</label>
-          <input type="checkbox" id="active" name="active" <?= $patient['active'] ? 'checked' : '' ?> class="mt-1 p-2" onclick="return false;">
+          <input type="checkbox" id="active" name="active" <?= $patient['active'] ? 'checked' : '' ?> class="mt-1 p-2 transition-all" onclick="return false;">
         </div>
 
     </div>
 
     <div class="mt-12">
-      <a href="./overzichtsPagina.php" class="inline-block rounded bg-red-400 px-4 py-2 text-lg font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-red-300">Back</a>
+      <a href="./overzichtsPagina.php" class="inline-block rounded bg-red-400 px-4 py-2 text-lg font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-red-300">Back</a>
     </div>
 
   </div>
