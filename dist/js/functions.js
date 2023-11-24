@@ -1,44 +1,6 @@
-// Search input functionaliteit
-// Credit: https://www.youtube.com/watch?v=qp7PdguA0Vg
-
-// wait for everything to load before executing
-document.addEventListener("DOMContentLoaded", () => {
-  // Select all the search inputs based on their id
-  document
-    .querySelectorAll(
-      "#search-input-Voornaam, #search-input-Achternaam, #search-input-Adres, #search-input-Huisnummer, #search-input-Postcode, #search-input-Plaats, #search-input-Telefoonnummer",
-    )
-    .forEach((inputField) => {
-      const tableRows = inputField
-        .closest("table")
-        .querySelectorAll("tbody > tr");
-      const headerCell = inputField.closest("th");
-      const otherHeaderCells = headerCell.closest("tr").children;
-      const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
-      const searchableCells = Array.from(tableRows).map(
-        (row) => row.querySelectorAll("td")[columnIndex],
-      );
-
-      inputField.addEventListener("input", () => {
-        const searchQuery = inputField.value.toLowerCase();
-
-        for (const tableCell of searchableCells) {
-          const row = tableCell.closest("tr");
-          const value = tableCell.textContent.toLowerCase().replace(",", "");
-
-          row.style.visibility = null;
-
-          if (value.search(searchQuery) === -1) {
-            row.style.visibility = "collapse";
-          }
-        }
-      });
-    });
-});
-
-// function to make the modal inside overzichtPagina.php function
+// function to make the modal inside overzichtPagina.php functional
 function openConfirmationModal(patientID, first_name) {
-  // variabals to make dynamic text and button functionality
+  // variabals to make dynamic text and button values
   var modal = document.getElementById("confirmationModal");
   var confirmationMessage = document.getElementById("confirmationMessage");
   var confirmButton = document.getElementById("confirmButton");
@@ -47,9 +9,10 @@ function openConfirmationModal(patientID, first_name) {
   confirmationMessage.textContent =
     "Are you sure you want to disable the patient " + first_name + "?";
 
-  // onclick event for modal confirm button inside of overzichtsPagina.php
+  // onclick event for modal confirm button inside overzichtsPagina.php
   confirmButton.onclick = function () {
     disablePatientJavascript(patientID);
+    document.getElementById(patientID).remove();
     modal.close();
   };
 
@@ -62,17 +25,13 @@ function closeConfirmationModal() {
   modal.close();
 }
 
-// patientID paramater comes from openConfirmationModal() inside of this file
+// patientID paramater comes from openConfirmationModal() inside of function.js aka this file
 function disablePatientJavascript(patientID) {
   // perform disabling patient action using AJAX
   var xhr = new XMLHttpRequest();
 
   // create & specify the request
-  xhr.open(
-    "GET",
-    "disablePatient.php?action=disable&patientID=" + patientID,
-    true,
-  );
+  xhr.open("GET", "functions.php?action=disable&patientID=" + patientID, true);
 
   // send te request to the stated file
   xhr.send();

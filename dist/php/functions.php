@@ -70,6 +70,19 @@ function updatePatient($patientID, $newFirstName, $newLastName, $newAddress, $ne
 
 
 
+// Values are obtained from functions.js disablePatientJavascript
+// didnt know wether to put it inside of a file called disablePatient.php or in here so i did both
+if (isset($_GET['action']) && $_GET['action'] === 'disable') {
+        if (isset($_GET['patientID'])) {
+            $patientID = $_GET['patientID'];
+            disablePatientPHP($patientID);
+
+        } else {
+            // in this case nothing if 'action' isn't set, it's else isnt needed
+            // its just here for when i copy my own code
+        }
+    }
+
 // patientID value comes from the function disablePatientJavascript() inside function.js
 function disablePatientPHP($patientID) {
 

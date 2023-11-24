@@ -7,6 +7,7 @@
     require_once 'functions.php';
     ?>
     <script src="../js/functions.js"></script>
+    <script src="../js/inputFieldFunctionality.js"></script>
   </head>
   <body>
     
@@ -38,7 +39,7 @@
             // foreach row inside the patienten table create a table row
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               // Patient Info TableRow
-              echo "<tr class='hover:bg-gray-100'>";
+              echo "<tr class='hover:bg-gray-100' id='". $row["patientID"] ."' >";
               echo "<td class='p-0 xl:p-2 pl-2 xl:px-4 border'>" . $row["first_name"] . "</td>";
               echo "<td class='p-0 xl:p-2 pl-2 xl:px-4 border'>" . $row["last_name"] . "</td>";
               echo "<td class='p-0 xl:p-2 pl-2 xl:px-4 border'>" . $row["address"] . "</td>";
@@ -49,14 +50,14 @@
               echo "<td class='pl-2 border'>";
               
               // View Patient Button
-              echo "<a class='inline-block rounded bg-blue-400 px-2 ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-blue-300' href='patientInfo.php?id=" . $row["patientID"] . "'>View</a>";
+              echo "<a class='inline-block rounded bg-blue-400 px-2 ml-2 py-1 text-sm font-medium text-white hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-blue-300' href='patientInfo.php?id=" . $row["patientID"] . "'>View</a>";
               
               // Edit Patient Button
-              echo "<a class='inline-block rounded bg-gray-400 px-2  ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-gray-300' href='editPatientInfo.php?id=" . $row["patientID"] . "'>Edit</a>";
+              echo "<a class='inline-block rounded bg-gray-400 px-2  ml-2 py-1 text-sm font-medium text-white hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-gray-300' href='editPatientInfo.php?id=" . $row["patientID"] . "'>Edit</a>";
 
               // Modal Button
               echo "<button 
-              class='inline-block rounded bg-red-400 px-2 ml-2 py-1 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-red-300' 
+              class='inline-block rounded bg-red-400 px-2 ml-2 py-1 text-sm font-medium text-white hover:scale-110 hover:shadow-xl focus:outline-none focus:ring ring-black active:bg-red-300' 
               onclick=\"openConfirmationModal('" . $row["patientID"] . "', '" . $row["first_name"] . "')\"
               >
               Disable

@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <?php $pagetitle = 'Home'; require_once 'head.php';?>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Huisarts | Home</title>
+    <link rel="stylesheet" href="output.css" />
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+    <meta name="description" content="A project made for Technova College by Lars van Holland">
   </head>
   <body>
     <!--
@@ -17,7 +22,7 @@
         <div class="mx-auto max-w-xl text-center">
           <a
             class="group relative inline-flex items-center overflow-hidden rounded bg-gray-600 px-16 py-6 text-white focus:outline-none focus:ring active:bg-gray-500"
-            href="../php/overzichtsPagina.php"
+            href="php/overzichtsPagina.php"
           >
             <span class="absolute -end-full transition-all group-hover:end-4">
               <svg
